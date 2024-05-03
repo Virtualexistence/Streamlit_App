@@ -11,7 +11,7 @@ st.divider()
 # if "Images" not in st.session_state or st.session_state.Images is None:
     # st.session_state["Images"] = [xata.query("OS_gens",{"page":{ "size": 6}, "sort": {"xata.createdAt": "desc"}})]
 
-response = xata.query('OS_gens')
+response = xata.query('OS_gens', {"page":{"size": 3}})
 st.write(response)
 
 st.video(response['records'][0]['clip_sample']['url'])
