@@ -13,5 +13,5 @@ st.divider()
 
 response = xata.query('OS_gens', {"page":{"size": 3}})
 st.write(response)
-
-st.video(response['records'][0]['clip_sample']['url'])
+for clip_sample in response['records']:
+    st.video(clip_sample['url'])
