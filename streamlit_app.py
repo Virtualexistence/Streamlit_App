@@ -12,6 +12,5 @@ st.divider()
     # st.session_state["Images"] = [xata.query("OS_gens",{"page":{ "size": 6}, "sort": {"xata.createdAt": "desc"}})]
 
 response = xata.query('OS_gens', {"page":{"size": 3}})
-st.write(response)
 for clip_sample in response['records']:
     st.video(clip_sample['clip_sample']['url'])
