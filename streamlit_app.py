@@ -2,7 +2,7 @@ import streamlit as st
 from st_xatadb_connection import XataConnection
 import requests
 
-st.set_page_config(page_title='Xata Demo',layout='wide')
+st.set_page_config(page_title='OS_Results',layout='wide')
 xata = st.connection('xata',type=XataConnection)
 
 st.title('VidGen Gallery 🎑')
@@ -22,7 +22,7 @@ for column_index, clip_sample in enumerate(st.session_state['Data'][0]['records'
         cols[column_index%3].video(clip_sample['clip_sample']['url'])
              
 
-button_columns = st.columns(2)
+button_columns = st.columns([0.5, 0.5])
 
 if button_columns[0].button("Previous"):
     if st.session_state['expt_id'] > 0:
