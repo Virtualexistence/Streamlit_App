@@ -29,6 +29,6 @@ if button_columns[0].button("Previous"):
         st.session_state['expt_id'] -= 1
         st.rerun()
 
-if button_columns[0].button("Next"):
+if button_columns[1].button("Next"):
         st.session_state['expt_id'] += 1
         st.rerun()
