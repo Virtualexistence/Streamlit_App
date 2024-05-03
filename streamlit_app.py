@@ -10,11 +10,13 @@ st.caption("Powered by Xata")
 st.divider()
 
 if "Data" not in st.session_state or st.session_state.Data is None:
-    st.session_state["Data"] = [xata.query("OS_gens")]
+    st.session_state["Data"] = [xata.query("OS_gens", {"sort": {"expt_id": "asc"}})]
+if "expt_id" not in st.session_state:
+    st.session_state['expt_id']=0
 
 # response = xata.query('OS_gens', {"page":{"size": 3}})
 # response = xata.query('OS_gens')
 cols = st.columns(3)
-st.write(st.session_state)
 for column_index, clip_sample in enumerate(st.session_state['Data'][0]['records']):
-    cols[column_index%3].video(clip_sample['clip_sample']['url'])
+    if clip_sample['expt_id'] == st.session_state['expt_id']:
+        cols[column_index%3].video(clip_sample['clip_sample']['url'])
