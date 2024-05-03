@@ -24,11 +24,11 @@ for column_index, clip_sample in enumerate(st.session_state['Data'][0]['records'
 
 button_columns = st.columns([0.5, 0.5])
 
-if button_columns[0].button("Previous"):
+if button_columns[0].button("Previous", use_container_width=True):
     if st.session_state['expt_id'] > 0:
         st.session_state['expt_id'] -= 1
         st.rerun()
 
-if button_columns[1].button("Next"):
+if button_columns[1].button("Next", use_container_width=True):
         st.session_state['expt_id'] += 1
         st.rerun()
