@@ -20,3 +20,15 @@ cols = st.columns(3)
 for column_index, clip_sample in enumerate(st.session_state['Data'][0]['records']):
     if clip_sample['expt_id'] == st.session_state['expt_id']:
         cols[column_index%3].video(clip_sample['clip_sample']['url'])
+             
+
+button_columns = st.columns(2)
+
+if button_columns[0].button("Previous"):
+    if st.session_state['expt_id'] > 0:
+        st.session_state['expt_id'] -= 1
+        st.rerun()
+
+if button_columns[0].button("Next"):
+        st.session_state['expt_id'] += 1
+        st.rerun()
