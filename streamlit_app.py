@@ -26,9 +26,11 @@ st.header(gallery_title, divider=True)
 # response = xata.query('OS_gens', {"page":{"size": 3}})
 # response = xata.query('OS_gens')
 cols = st.columns(3)
-for column_index, clip_sample in enumerate(st.session_state['Data'][0]['records']):
+column_index = 0
+for clip_sample in st.session_state['Data'][0]['records']:
     if clip_sample['expt_id'] == st.session_state['expt_id']:
         cols[column_index%3].video(clip_sample['clip_sample']['url'], loop=True, autoplay=True)
+        column_index += 1
              
 button_columns = st.columns([0.5, 0.5])
 
