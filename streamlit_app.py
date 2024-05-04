@@ -13,7 +13,13 @@ if "expt_id" not in st.session_state:
 
 st.title('VidGen Gallery 🎑')
 st.caption("Powered by Xata - Free Plan")
-gallery_title = xata.query("ExperimentTitle", {"filter":{"expt_id":st.session_state['expt_id']}})['records'][0]['expt_name']
+try:
+    gallery_title = xata.query("ExperimentTitle", {"filter":{"expt_id":st.session_state['expt_id']}})['records'][0]['expt_name']
+except:
+    st.session_state['expt_id']=0
+    gallery_title = xata.query("ExperimentTitle", {"filter":{"expt_id":st.session_state['expt_id']}})['records'][0]['expt_name']
+
+
 st.header(gallery_title, divider=True)
 # st.divider()
 
