@@ -13,7 +13,7 @@ st.markdown(
     enables smoother naviagtion rather than stiching GIFs together, compressing it's information.
     
     Note: Incase the app throws an error in any tab, try refreshing 
-    it since the application only interacts with the databse only once 
+    it since the application interacts with the databse only once 
     so any change done at the moment might casue an error with old cache"""
 )
 
