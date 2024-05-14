@@ -1,5 +1,5 @@
 # env
 st_env/
 
-# local creds
-run_creds.sh
+# secrets
+.env

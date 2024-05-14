@@ -10,9 +10,13 @@ st.sidebar.success("Select a tab")
 
 st.markdown(
     """Homepage to gallery for better navigation of model inference, 
-    enables smoother naviagtion rather than stiching GIFs together, compressing it's information"""
+    enables smoother naviagtion rather than stiching GIFs together, compressing it's information.
+    
+    :blue-backgrtound[Incase the app throws an error in a tab, try refreshing it since the application only interacts with the databse only once so any change done at the moment might casue an error with old cache]"""
 )
 
 st.write("Link to the pages")
-for page_link in glob('pages/*.py'):
-    st.page_link(page_link)
+for page_link in glob('pages/[0-9]*.py'):
+    if page_link is not "pages/__init__.py":
+        st.page_link(page_link)
+st.page_link('pages/Upload_New_Page.py')
