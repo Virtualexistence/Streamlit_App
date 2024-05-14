@@ -11,7 +11,7 @@ def sanitize_filename(filename):
 
 file_id = len(os.listdir('pages'))-2
 st.write("After uploading reload the page to refresh the cache. This'll avoid error due to any changes since the app interacts with the database only once during the initiation.")
-tab_name = st.chat_input("Untitled Tab")
+tab_name = st.chat_input("Untitled Tab", disabled=True)
 if tab_name:
     f_name = f"{file_id}_{sanitize_filename(tab_name)}.py"
 
