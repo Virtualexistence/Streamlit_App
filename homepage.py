@@ -12,7 +12,7 @@ st.markdown(
     """Homepage to gallery for better navigation of model inference, 
     enables smoother naviagtion rather than stiching GIFs together, compressing it's information.
     
-    :blue-backgrtound[Incase the app throws an error in a tab, try refreshing it since the application only interacts with the databse only once so any change done at the moment might casue an error with old cache]"""
+    :blue-background[Incase the app throws an error in any tab, try refreshing it since the application only interacts with the databse only once so any change done at the moment might casue an error with old cache]"""
 )
 
 st.write("Link to the pages")
