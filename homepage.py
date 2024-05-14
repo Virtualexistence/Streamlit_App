@@ -21,4 +21,4 @@ st.write("Link to the pages")
 for page_link in glob('pages/[0-9]*.py'):
     if page_link != "pages/__init__.py":
         st.page_link(page_link)
-st.page_link('pages/Upload_New_Page.py')
+# st.page_link('pages/Upload_New_Page.py')
