@@ -10,7 +10,8 @@ def sanitize_filename(filename):
     return sanitized_filename
 
 file_id = len(os.listdir('pages'))-2
-st.write("After uploading reload the page to refresh the cache. This'll avoid error due to any changes since the app interacts with the database only once during the initiation.")
+st.write("After uploading reload the page to refresh the cache. This'll avoid error due to any changes since the app interacts with the database only once (during the initiation).")
+st.markdown(":red-background[Disabled for now since this is a public page]")
 tab_name = st.chat_input("Untitled Tab", disabled=True)
 if tab_name:
     f_name = f"{file_id}_{sanitize_filename(tab_name)}.py"

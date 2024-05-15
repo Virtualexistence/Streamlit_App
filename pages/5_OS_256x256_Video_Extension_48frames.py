@@ -1,4 +1,4 @@
-from pages.template.template import Page_Template
+from pages.template import Page_Template
 
 stage_settings = Page_Template(4)
 
