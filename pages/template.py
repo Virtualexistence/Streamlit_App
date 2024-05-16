@@ -44,7 +44,7 @@ class Page_Template():
                 column_index += 1
 
     def launch_page_V2(self):
-        st.set_page_config(page_title=self.page_title,layout='wide')
+        # st.set_page_config(page_title=self.page_title,layout='wide')
         xata = st.connection('xata',type=XataConnection)
         try:
             st.session_state['expt_id']=self.page_id
