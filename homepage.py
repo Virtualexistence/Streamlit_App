@@ -8,7 +8,6 @@ st.set_page_config(
 
 st.write("# Experimental Video Generation gallery")
 st.sidebar.success("Select a tab")
-st.sidebar.divider()
 
 st.markdown(
     """Homepage to gallery for better navigation of model inference.
