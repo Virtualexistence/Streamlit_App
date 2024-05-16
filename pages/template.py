@@ -9,7 +9,7 @@ class Page_Template():
         self.page_title = page_title
 
     def launch_page(self):
-        st.set_page_config(page_title=self.page_title,layout='wide')
+        # st.set_page_config(page_title=self.page_title,layout='wide')
         xata = st.connection('xata',type=XataConnection)
 
         # if "Data" not in st.session_state or st.session_state.Data is None:
