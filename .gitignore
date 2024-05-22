@@ -1,5 +1,8 @@
 # env
 st_env/
 
+#misc
+pages/__pycache__/
+
 # secrets
 .env
