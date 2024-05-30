@@ -2,6 +2,7 @@ import streamlit as st
 from glob import glob
 import re
 
+
 st.set_page_config(
     page_title="Gallery Homepage"
 )

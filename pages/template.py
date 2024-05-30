@@ -4,9 +4,10 @@ from st_xatadb_connection import XataConnection
 
 class Page_Template():
 
-    def __init__(self, page_id, page_title='OS_Results'):
+    def __init__(self, page_id, page_title='OS_Results', group_title="OS_V1.1_Results"):
         self.page_id = page_id
         self.page_title = page_title
+        self.group_title = group_title
 
     def launch_page(self):
         # st.set_page_config(page_title=self.page_title,layout='wide')
@@ -43,6 +44,39 @@ class Page_Template():
                 cols[column_index%3].video(clip_sample['clip_sample']['url'], loop=False, autoplay=True)
                 column_index += 1
 
+    def launch_page_V3(self):
+        # st.set_page_config(page_title=self.page_title,layout='wide')
+        assert isinstance(self.page_id, list) 
+        xata = st.connection('xata',type=XataConnection)
+        st.header(self.group_title)
+        st.markdown(f"Scroll Down to view more! ⬇️")
+        for page_id in self.page_id:
+            try:
+                st.session_state['expt_id']=page_id
+                st.session_state["Data"] = [xata.query("OS_results_new_format", {"filter": {"expt_id": st.session_state['expt_id']}})]
+                # gallery_title = xata.query("ExperimentTitle", {"filter":{"expt_id":st.session_state['expt_id']}})['records'][0]['expt_name']
+                metadata = xata.query("ExperimentTitle", {"filter":{"expt_id":st.session_state['expt_id']}})['records'][0]
+
+            except Exception as e:
+                print(str(e))
+                st.session_state['expt_id']=-1
+                st.session_state["Data"] = [xata.query("OS_gens", {"filter": {"expt_id": st.session_state['expt_id']}})]
+                metadata = xata.query("ExperimentTitle", {"filter":{"expt_id":st.session_state['expt_id']}})['records'][0]
+
+
+            st.subheader(metadata['expt_name'])
+            if metadata['metadata'] != "No data":
+                st.markdown(metadata['metadata'])
+
+            cols = st.columns(3)
+            column_index = 0
+            if st.session_state['Data'][0]['records'][0]['expt_id'] == st.session_state['expt_id']:
+                for clip_sample in st.session_state['Data'][0]['records'][0]['Videos']:
+                    cols[column_index%3].video(clip_sample['url'], loop=False, autoplay=True)
+                    column_index += 1
+            
+            st.divider()
+    
     def launch_page_V2(self):
         # st.set_page_config(page_title=self.page_title,layout='wide')
         xata = st.connection('xata',type=XataConnection)
